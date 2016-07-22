@@ -1,0 +1,187 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HTC_One_M8_Toolkit_2"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="HTC_One_M8_Toolkit_2.MainWindow"
+        mc:Ignorable="d"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush}"
+        Title="Squabbi's HTC One M8 Toolkit - 4.0" Height="613.002" Width="536.431" TitleCaps="False" FontWeight="Light" Loaded="MetroWindow_Loaded" Closing="MetroWindow_Closing" Icon="SK Purple.ico" ResizeMode="CanMinimize">
+    <Controls:MetroWindow.Resources>
+        <System:String x:Key="page_adb_deviceselector_state">Status:</System:String>
+        <System:String x:Key="page_adb_deviceselector_product">Product:</System:String>
+        <System:String x:Key="page_adb_deviceselector_model">Model:</System:String>
+        <System:String x:Key="page_adb_deviceselector_device">Device:</System:String>
+    </Controls:MetroWindow.Resources>
+    <Grid>
+        <RichTextBox x:Name="console" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="124" Margin="10,446,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="518">
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="0,0,0,0"/>
+                </Style>
+            </RichTextBox.Resources>
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="..."/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ProgressBar x:Name="statusProgress" HorizontalAlignment="Left" Height="10" Margin="10,431,0,0" VerticalAlignment="Top" Width="518" MouseDoubleClick="statusProgress_MouseDoubleClick"/>
+        <Grid x:Name="innerGrid" HorizontalAlignment="Left" Height="374" Margin="10,52,0,0" VerticalAlignment="Top" Width="518">
+            <GroupBox x:Name="groupBox1" Header="1. Unlock Bootloader" HorizontalAlignment="Left" Margin="10,10,-148,-112" VerticalAlignment="Top" Height="202" Width="238">
+                <Grid Margin="0">
+                    <Button x:Name="btnLinkHtcDev" Content="0. Sign up for HTCDev Acc." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="206" Click="btnLinkHtcDev_Click"/>
+                    <Button x:Name="btnGetUnlockCode" Content="1. Get Unlock Token Code" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="206" Click="btnGetUnlockCode_Click"/>
+                    <Button x:Name="btnOpenTokenCode" Content="1a. Open Token Code" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="206" Click="btnOpenTokenCode_Click"/>
+                    <Button x:Name="btnUnlockBootloader" Content="2. Unlock Bootloader" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Width="206" Click="btnUnlockBootloader_Click"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox x:Name="groupBox" Header="2. Flash TWRP" HorizontalAlignment="Left" Margin="10,217,0,-77" VerticalAlignment="Top" Height="147" Width="238">
+                <Grid>
+                    <ComboBox x:Name="twrpBuildList" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="206">
+                        <ComboBoxItem Content="M8-M8: CUSTOM RECOVERY..."/>
+                    </ComboBox>
+                    <Button x:Name="btnFlashTwrp" Content="Flash TWRP" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="206" Click="btnFlashTwrp_Click"/>
+                    <Button x:Name="openTwrpFaq" Style="{StaticResource MaterialDesignFlatButton}" Content="TWRP FAQ" HorizontalAlignment="Left" Margin="106,75,0,0" VerticalAlignment="Top" Width="110" Height="25" Click="openTwrpFaq_Click"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox x:Name="groupBox2" Header="3. Flash SuperSU" HorizontalAlignment="Left" Margin="253,217,0,0" VerticalAlignment="Top" Height="147" Width="251">
+                <Grid>
+                    <Button x:Name="pushSU" Content="Flash SuperSU" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="219" Click="pushSU_Click"/>
+                    <ComboBox x:Name="supersuBuildList" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="219">
+                        <ComboBoxItem Content="Custom SuperSU Package"/>
+                    </ComboBox>
+                    <CheckBox x:Name="justPushSU" Content="Just Push SuperSU, manual flash." HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox x:Name="groupBox3" Header="Info" HorizontalAlignment="Left" Margin="253,10,0,0" VerticalAlignment="Top" Height="202" Width="251">
+                <Grid>
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="145" Width="219"><Run Text="Hello! Welcome to the "/><Run Text="2.5"/><Run Text=" version of the HTC One M"/><Run Text="8"/><Run Text=" toolkit! This is the 'EOL' (end of life) release, however its contents such as SuperSU and TWRP will be updated remotely and accordingly!"/><LineBreak/><Run/><LineBreak/><Run Text="Please reply with any issues on XDA and also check out the source code on GitHub if you want to contribute."/><Run Text=" :-)"/></TextBlock>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Menu x:Name="menu" VerticalAlignment="Top" Margin="0">
+            <MenuItem x:Name="menuFile" Header="File">
+                <MenuItem x:Name="menuVersion" Header="Version x.x.x.x" IsEnabled="False">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/help-32.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="xdaThread" Header="Open Toolkit Thread" Click="xdaThread_Click"/>
+                <MenuItem x:Name="openDataFolder" Header="Open Data Folder" Click="openDataFolder_Click"/>
+                <Separator/>
+                <MenuItem x:Name="installDrivers" Header="Install HTC USB Driver" Click="installDrivers_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/software_installer-32.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="linkDeviceManager" Header="Open Device Manager" Click="linkDeviceManager_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/device_manager-32.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="saveLog" Header="Save Log (Output)" Click="saveLog_Click"/>
+                <MenuItem x:Name="linkExit" Header="Exit" Click="linkExit_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/exit_sign-32.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="ADB">
+                <MenuItem x:Name="adbVersion" Header="Version" Click="adbVersion_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/help-32.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="adbSideload" Header="Sideload" Click="adbSideload_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/upload-32.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="adbAPK" Header="Install APK(s)" Click="adbAPK_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/software_installer-32.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Reboot">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/refresh-32.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="adbRebootReboot" Header="Reboot to Android" Click="adbRebootReboot_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/android_OS_copyrighted-32.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="adbRebootBootloader" Header="Reboot to Bootloader" Click="adbRebootBootloader_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/smartphone_RAM-32.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="adbRebootRecovery" Header="Reboot to Recovery" Click="adbRebootRecovery_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/restart-32.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="adbRebootDownload" Header="Reboot to Download Mode" Click="adbRebootDownload_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/restart-32.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Fastboot">
+                <MenuItem Header="Reboot">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/refresh-32.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="fbtRebootReboot" Header="Reboot to Android" Click="fbtRebootReboot_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/android_OS_copyrighted-32.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="fbtRebootBootloader" Header="Reboot to Bootloader" Click="fbtRebootBootloader_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/smartphone_RAM-32.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="menuAbout" Header="About" Click="menuAbout_Click" ToolTip="Shows information about the toolkit."/>
+        </Menu>
+        <ComboBox x:Name="deviceselector" HorizontalAlignment="Left" Margin="305,10,0,0" VerticalAlignment="Top" Width="201" Height="30" SelectionChanged="SelectDeviceInstance">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,2,0,5" Orientation="Vertical">
+                        <TextBlock Text="{Binding Serial}" />
+                        <Grid Margin="15,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="14" />
+                                <RowDefinition Height="14" />
+                                <RowDefinition Height="14" />
+                                <RowDefinition Height="14" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{DynamicResource ResourceKey=page_adb_deviceselector_state}" Grid.Row="0" FontSize="9" Grid.Column="0" />
+                            <TextBlock Text="{Binding State}" Grid.Row="0" Margin="5,0,0,0" FontSize="9" Grid.Column="1" />
+                            <TextBlock Text="{DynamicResource ResourceKey=page_adb_deviceselector_product}" Grid.Row="1" FontSize="9" Grid.Column="0" />
+                            <TextBlock Text="{Binding Product}" Grid.Row="1" Margin="5,0,0,0" FontSize="9" Grid.Column="1" />
+                            <TextBlock Text="{DynamicResource ResourceKey=page_adb_deviceselector_model}" Grid.Row="2" FontSize="9" Grid.Column="0" />
+                            <TextBlock Text="{Binding Model}" Grid.Row="2" Margin="5,0,0,0" FontSize="9" Grid.Column="1" />
+                            <TextBlock Text="{DynamicResource ResourceKey=page_adb_deviceselector_device}" Grid.Row="3" FontSize="9" Grid.Column="0" />
+                            <TextBlock Text="{Binding Device}" Grid.Row="3" Margin="5,0,0,0" FontSize="9" Grid.Column="1" />
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+    </Grid>
+</Controls:MetroWindow>
