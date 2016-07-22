@@ -41,10 +41,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AndroidCtrl">
-      <HintPath>..\..\AndroidCtrl\03-01-16\AndroidCtrl.dll</HintPath>
+      <HintPath>..\..\..\Libraries\AndroidCtrl\03-01-16\AndroidCtrl.dll</HintPath>
     </Reference>
     <Reference Include="iniParser2">
-      <HintPath>..\..\iniParser2\iniParser2\bin\Release\iniParser2.dll</HintPath>
+      <HintPath>..\..\..\Libraries\iniParser2\iniParser2\bin\Release\iniParser2.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
@@ -78,7 +78,7 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="Updater">
-      <HintPath>..\..\TutUpdaterFix\TutUpdater\TutUpdater\bin\Release\Updater.dll</HintPath>
+      <HintPath>..\..\..\Libraries\aUpdater\Updater\bin\Release\Updater.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
