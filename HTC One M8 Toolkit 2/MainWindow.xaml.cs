@@ -538,7 +538,7 @@ namespace HTC_One_M8_Toolkit_2
         {
             try
             {
-                Process.Start("./Data/token.txt");
+                Process.Start(System.AppDomain.CurrentDomain.BaseDirectory + "/Data/token.txt");
             }
             catch (Exception ex)
             {
